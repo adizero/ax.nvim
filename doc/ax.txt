@@ -22,13 +22,13 @@ To install the ax plugin, you can use a package manager like vim-plug or lazy.nv
 Using vim-plug:
 
 ```vim
-Plug 'mikeslattery/ax.nvim'
+Plug 'adizero/ax.nvim'
 ```
 
 Using lazy.nvim:
 
 ```lua
-{ "mikeslattery/ax.nvim", cmd = { "Ax", "AxForget", "AxMove", "AxAudit" } }
+{ "adizero/ax.nvim", cmd = { "Ax", "AxForget", "AxMove", "AxAudit" } }
 ```
 
 ==============================================================================
@@ -36,7 +36,7 @@ Using lazy.nvim:
 
 Ax provides the following commands:
 
-- `:Ax [file]`: Deletes the file and removes all traces of it from Neovim's state. If no file is provided, it applies to the current buffer.
+- `:AxDelete [file]`: Deletes the file and removes all traces of it from Neovim's state. If no file is provided, it applies to the current buffer.
 
 - `:AxForget [file]`: Removes all traces of the file from Neovim's state but does not delete the file. If no file is provided, it applies to the current buffer.
 

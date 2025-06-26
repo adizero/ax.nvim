@@ -5,7 +5,7 @@
 
 set -euo pipefail
 
-USERNAME='mikeslattery'
+USERNAME='adizero'
 NAME="$(ls -1 lua | head -1)"
 
 MODEL="${MODEL:-gpt-4}"

@@ -303,21 +303,21 @@ end
 function M.setup(setup_config)
   setup_config = setup_config or {}
   M.config(setup_config)
-  vim.api.nvim_create_user_command('Ax', function(args)
+  vim.api.nvim_create_user_command('AxDelete', function(args)
     if #args.fargs >= 1 then
       M.ax(args.fargs[1])
     else
       M.ax()
     end
-  end, { nargs = "*" })
-  
+  end, { desc = "Deletes the file and removes all traces of it from Neovim's state", nargs = "*" })
+
   vim.api.nvim_create_user_command('AxForget', function(args)
     if #args.fargs >= 1 then
       M.ax_forget(args.fargs[1])
     else
       M.ax_forget()
     end
-  end, { nargs = "*" })
+  end, { desc = "Removes all traces of the file from Neovim's state, but do not delete the file",nargs = "*" })
 
   vim.api.nvim_create_user_command('AxMove', function(args)
     if #args.fargs == 2 then
@@ -325,7 +325,7 @@ function M.setup(setup_config)
     else
       print("AxMove requires exactly 2 arguments")
     end
-  end, { nargs = "*" })
+  end, { desc = "Moves the file to a new location and updates all references to it in Neovim's state", nargs = "*" })
 
   vim.api.nvim_create_user_command('AxMoved', function(args)
     if #args.fargs == 2 then
@@ -333,11 +333,11 @@ function M.setup(setup_config)
     else
       print("AxMoved requires exactly 2 arguments")
     end
-  end, { nargs = "*" })
+  end, { desc = "Handles a file that was moved outside of Neovim", nargs = "*" })
 
   vim.api.nvim_create_user_command('AxAudit', function(args)
     M.audit()
-  end, { nargs = "*" })
+  end, { desc = "Generates an audit report of forgotten files", nargs = "*" })
   return M
 end
 
